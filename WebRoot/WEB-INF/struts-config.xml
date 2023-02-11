@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+
+<struts-config>
+  <form-beans />
+  <global-exceptions />
+  <global-forwards />
+  <action-mappings >
+    
+    <action
+      path="/hou"
+      type="com.mugui.struts.action.HouAction"
+      cancellable="true" >
+      <forward name="error" path="/WEB-INF/error.jsp" />
+      
+      
+      
+      
+      
+    </action>
+    <action
+      path="/user"
+      type="com.mugui.struts.action.UserAction"
+      cancellable="true" >
+      <forward name="error" path="/WEB-INF/error.jsp" />
+    </action>
+    <action
+      path="/accpetali"
+      type="com.mugui.struts.action.AccpetaliAction"
+      cancellable="true" >
+      <forward name="error" path="/WEB-INF/error.jsp" />
+    </action>
+    <action
+      path="/sendali"
+      type="com.mugui.struts.action.SendaliAction"
+      cancellable="true" >
+      
+      <forward name="close" path="/WEB-INF/close.jsp" />
+    </action>
+
+    <action
+      path="/order"
+      type="com.mugui.struts.action.OrderAction"
+      cancellable="true" />
+    <action
+      path="/ssr"
+      type="com.mugui.struts.action.SSRAction"
+      cancellable="true" />
+
+
+      
+  </action-mappings>
+
+  <message-resources parameter="com.mugui.struts.ApplicationResources" />
+</struts-config>
+

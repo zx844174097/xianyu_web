@@ -1,0 +1,11 @@
+userDyTime : select dytime from gj_time where mail=? ;
+#查询用户时间
+get_user_time : SELECT mail,dytime FROM jiaoben.gj_time where mail=? ;
+#添加一个新的订单
+add_order : INSERT INTO `jiaoben`.`order` (`code`, `mail`, `money`, `input`, `state`, `other`) VALUES (?, ?, ?, ?, ?, ?);
+get_not_finish_order : SELECT * FROM jiaoben.`order` WHERE  `mail`=? and `state`<2 LIMIT 1; 
+#修改用户时间
+update_user_time : UPDATE `jiaoben`.`gj_time` SET `dytime`=? WHERE `mail`=?;
+add_user_time : INSERT INTO `jiaoben`.`gj_time` (`mail`) VALUES (?);
+#查询充值天数的价格 
+select_time_money : SELECT * FROM jiaoben.time_money WHERE  name=?; 

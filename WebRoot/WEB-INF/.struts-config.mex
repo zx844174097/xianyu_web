@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FlowViewLayout Version="1.2">
+  <StrutsActivity path="/hou.do" location="200,0" dimension="244,84" />
+  <StrutsActivity path="/user.do" location="480,0" dimension="245,104" />
+  <StrutsActivity path="/accpetali.do" location="300,240" dimension="270,104" />
+  <StrutsActivity path="/sendali.do" location="315,360" dimension="260,104" />
+  <StrutsActivity path="/order.do" location="585,240" dimension="274,104" />
+  <StrutsActivity path="/WEB-INF/error.jsp" location="0,184" dimension="148,48" />
+  <StrutsActivity path="/WEB-INF/close.jsp" location="600,360" dimension="150,100" />
+  <StrutsActivity path="/userindex.html" location="15,315" dimension="150,100" />
+  <StrutsActivity path="/ssr.do" location="116,452" dimension="150,100" />
+  <StrutsTransition id="/user.do,error,/WEB-INF/error.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="602,104" />
+      <AbsolutePoint location="602,208" />
+      <AbsolutePoint location="148,208" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/sendali.do,close,/WEB-INF/close.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="575,410" />
+      <AbsolutePoint location="600,410" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/hou.do,error,/WEB-INF/error.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="200,42" />
+      <AbsolutePoint location="44,42" />
+      <AbsolutePoint location="44,184" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/accpetali.do,error,/WEB-INF/error.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="300,292" />
+      <AbsolutePoint location="74,292" />
+      <AbsolutePoint location="74,232" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+</FlowViewLayout>
+

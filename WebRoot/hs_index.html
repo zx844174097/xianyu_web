@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	
+<META HTTP-EQUIV="pragma" CONTENT="no-cache">
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate">
+<META HTTP-EQUIV="expires" CONTENT="0">
+<meta charset="utf-8" />
+<title>咸鱼充值页面</title>
+<style>
+@font-face {
+	font-family: uc-nexus-iconfont;
+	src:
+		url(chrome-extension://pogijhnlcfmcppgimcaccdkmbedjkmhi/res/font_9qmmi8b8jsxxbt9.woff)
+		format('woff'),
+		url(chrome-extension://pogijhnlcfmcppgimcaccdkmbedjkmhi/res/font_9qmmi8b8jsxxbt9.ttf)
+		format('truetype')
+}
+</style>
+
+<!--<link rel="stylesheet" href="css/webmain.css" />
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.form.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>-->
+
+</head>
+
+<body class="main-body">
+
+	<div id="fade" class="black_overlay" align="center">
+		<div id="light" class="white_content" align="center">
+			<div id="light-head" align="center"
+				style="font-size: 14px; font-style:initial; color: red;">确认订单信息</div>
+			<div id="light-table">
+				<table id="service-content" align="center" cellspacing="4">
+					<tr style="height: 40px;">
+						<th></th>
+						<th>钓鱼</th>
+						<th>抢拍</th>
+						<th>加工</th>
+						<th>贸易</th>
+						<th>炼金</th>
+						<th>采集</th>
+						<th>定时</th>
+					</tr>
+					<tr>
+						<th>充值天数</th>
+						<th id="timepy">0</th>
+						<th id="Qptimepy">0</th>
+						<th id="Jgtimepy">0</th>
+						<th id="Mytimepy">0</th>
+						<th id="Ljtimepy">0</th>
+						<th id="Cjtimepy">0</th>
+						<th id="Dstimepy">0</th>
+					</tr>
+				</table>
+			</div>
+			<div id="light-tail">
+				<form id="orderform" action="order.do?bag_id=" method="post"
+					target="_blank"></form>
+				<input class=" btn btn-info" type="submit" value="支付此订单" style=""
+					onclick="payOrder()" /> <input class=" btn btn-info" type="submit"
+					value="取消此订单" style="" onclick="removeOrder()" />
+			</div>
+		</div>
+	</div>
+
+
+	
+	<div
+		style="width: auto; margin-top: 10px; line-height: 1.6; font-size: 14px;"
+		align="center">
+		<label style="text-align: center; font-size: 18px; margin-top: 3px;">咸鱼盒子账号:</label>
+		<input type="text" id="user-mail" name="user-mail" align="justify"
+			style="align-content: center;height: 21px; border-width: 2px; padding: 4px;"
+			placeholder="请输入邮箱账号" /> <input class=" btn btn-info" type="submit"
+			value="查询" style="" onclick="selectUserTime()" />
+	</div>
+	<div id="main" style="display: none;">
+
+		<table id="service-content" align="center" style="margin-top: 40px;"
+			cellspacing="4">
+			<tr style="height: 40px;">
+				<th></th>
+				<th>钓鱼</th>
+				<th>抢拍</th>
+				<th>加工</th>
+				<th>贸易</th>
+				<th>炼金</th>
+				<th>采集</th>
+				<th>定时</th>
+			</tr>
+			<tr>
+				<th>天数显示</th>
+				<th id="time">0</th>
+				<th id="Qptime">0</th>
+				<th id="Jgtime">0</th>
+				<th id="Mytime">0</th>
+				<th id="Ljtime">0</th>
+				<th id="Cjtime">0</th>
+				<th id="Dstime">0</th>
+			</tr>
+			<tr style="height: 45px;">
+				<th>充值天数填写</th>
+
+				<th>
+					<div id="timein" style="display: inline-block;">
+						<input type="text" name="dyTime" id="dyTime" value="0"
+							style="padding: 5px;width: 50px;" /> <select
+							style="margin: -3px -3px -3px -31px; height: 29px;width: 27px; padding: 2px;">
+							<option value="0"></option>
+							<option value="7">7天</option>
+							<option value="31">1月</option>
+							<option value="91">1季</option>
+							<option value="181">半年</option>
+							<option value="365">1年</option>
+							<option value="99999999">永久</option>
+						</select>
+					</div>
+				</th>
+				<th>
+					<div id="Qptimein" style="display: inline-block;">
+						<input type="text" name="dyTime" id="dyTime" value="0"
+							style="padding: 5px;width: 50px;" /> <select
+							style="margin: -3px -3px -3px -31px; height: 29px;width: 27px; padding: 2px;">
+							<option value="0"></option>
+							<!--  <option value="7">7天</option>-->
+							<option value="31">1月</option>
+							<option value="91">1季</option>
+							<option value="181">半年</option>
+							<option value="365">1年</option>
+							<option value="99999999">永久</option>
+						</select>
+					</div>
+				</th>
+				<th>
+					<div id="Jgtimein" style="display: inline-block;">
+						<input type="text" name="dyTime" id="dyTime" value="0"
+							style="padding: 5px;width: 50px;" /> <select
+							style="margin: -3px -3px -3px -31px; height: 29px;width: 27px; padding: 2px;">
+							<option value="0"></option>
+							<!--  <option value="7">7天</option>-->
+							<option value="31">1月</option>
+							<option value="91">1季</option>
+							<option value="181">半年</option>
+							<option value="365">1年</option>
+							<option value="99999999">永久</option>
+						</select>
+					</div>
+				</th>
+				<th>
+					<div id="Mytimein" style="display: inline-block;">
+						<input type="text" name="dyTime" id="dyTime" value="0"
+							style="padding: 5px;width: 50px;" /> <select
+							style="margin: -3px -3px -3px -31px; height: 29px;width: 27px; padding: 2px;">
+							<option value="0"></option>
+							<option value="7">7天</option>
+							<option value="31">1月</option>
+							<option value="91">1季</option>
+							<option value="181">半年</option>
+							<option value="365">1年</option>
+							<option value="99999999">永久</option>
+						</select>
+					</div>
+				</th>
+				<th>
+					<div id="Ljtimein" style="display: inline-block;">
+						<input type="text" name="dyTime" id="dyTime" value="0"
+							style="padding: 5px;width: 50px;" /> <select
+							style="margin: -3px -3px -3px -31px; height: 29px;width: 27px; padding: 2px;">
+							<option value="0"></option>
+							<!--<option value="7">7天</option>-->
+							<option value="31">1月</option> 
+							<option value="91">1季</option>
+							<option value="181">半年</option>
+							<option value="365">1年</option>
+							<option value="99999999">永久</option>
+						</select>
+					</div>
+				</th>
+				<th>
+					<div id="setdyTime" style="display: inline-block;">
+						<input disabled="disabled" type="text" name="dyTime" id="dyTime"
+							value="0" style="padding: 5px;width: 50px;" /> <select
+							style="margin: -3px -3px -3px -31px; height: 29px;width: 27px; padding: 2px;"
+							disabled="disabled">
+							<option value="0"></option>
+							<option value="7">7天</option>
+							<option value="31">1月</option>
+							<option value="91">1季</option>
+							<option value="181">半年</option>
+							<option value="365">1年</option>
+							<option value="99999999">永久</option>
+						</select>
+					</div>
+				</th>
+				<th>
+					<div id="Dstimein" style="display: inline-block;">
+						<input type="text" name="dyTime" id="dyTime" value="0"
+							style="padding: 5px;width: 50px;" /> <select
+							style="margin: -3px -3px -3px -31px; height: 29px;width: 27px; padding: 2px;">
+							<option value="0"></option>
+							<option value="7">7天</option>
+							<option value="31">1月</option>
+							<option value="91">1季</option>
+							<option value="181">半年</option>
+							<option value="365">1年</option>
+							<option value="99999999">永久</option>
+						</select>
+					</div>
+				</th>
+			</tr>
+			<tr>
+				<th>充值后天数</th>
+				<th id="timeout">0</th>
+				<th id="Qptimeout">0</th>
+				<th id="Jgtimeout">0</th>
+				<th id="Mytimeout">0</th>
+				<th id="Ljtimeout">0</th>
+				<th id="Cjtimeout">0</th>
+				<th id="Dstimeout">0</th>
+			</tr>
+			</tbody>
+		</table>
+		<div
+			style="width: 600px; text-align: right; margin-top: 60px;margin:60px auto;"
+			align="center">
+			<label style="color: red; font-size: 12px;">*实际金额以完成后的订单为准</label> <label
+				style="text-align: center; font-size: 16px; margin-top: 3px; font-family:'宋体'; font: bold;">花费金额</label>
+			<input type="text" name="money" id="money" value="0.00"
+				style="width: 68px; text-align: right; align-content: center;height: 18px; border-width: 2px; padding: 4px;" />
+			<input class=" btn btn-info" type="submit" value="充值提交" style=""
+				onclick="addOrder()" />
+		</div>
+
+	</div>
+	<div align="center"
+		style="width: 600px; text-align: left; margin: 50px auto; color:crimson ;">
+		<label id="message_info" style="margin-left: 0px;"></label>
+	</div>
+	<div id="otherFrame"></div>
+	</div>
+</body>
+
+</html>

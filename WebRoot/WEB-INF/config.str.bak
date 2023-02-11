@@ -1,0 +1,25 @@
+#这里是数据库语句存放点
+isMail : select id from user where mail=?;
+regUser : insert into user(mail,passwd) value(?,?);
+loginUser : select id from user where mail=? and passwd=? and state='*';
+dycodeTime : select time from user where mail=? and state='*';
+isTime : SELECT  TO_DAYS(NOW()) - TO_DAYS(zTime)<=? from user where mail=? and state='*';
+userDyTime : select time-TO_DAYS(NOW())+TO_DAYS(zTime) from user where mail=? and state='*';
+userQpTime : select Qptime-TO_DAYS(NOW())+TO_DAYS(zTime) from user where mail=? and state='*';
+userDsTime : select Dstime-TO_DAYS(NOW())+TO_DAYS(zTime) from user where mail=? and state='*';
+userJgTime : select Jgtime-TO_DAYS(NOW())+TO_DAYS(zTime) from user where mail=? and state='*';
+userMyTime : select Mytime-TO_DAYS(NOW())+TO_DAYS(zTime) from user where mail=? and state='*';
+userLjTime : select Ljtime-TO_DAYS(NOW())+TO_DAYS(zTime) from user where mail=? and state='*';
+add_user_name : INSERT INTO `jiaoben`.`user_info` (`user_mail`, `user_name`) VALUES (?, ?);
+get_user_one : SELECT * FROM jiaoben.user_info where user_mail=?;
+save_snake_mark : UPDATE `jiaoben`.`user_info` SET `user_snake_mark`=? WHERE `user_mail`=?;
+snake_mark_all : SELECT user_name,user_snake_mark FROM jiaoben.user_info where user_snake_mark is not NULL and user_snake_mark!="" order by user_snake_mark desc;
+delete_user : UPDATE `jiaoben`.`user` SET `state`='.' WHERE `mail`=? and `state`='*';
+select_user : select * from user where mail=? and state='*';
+#当字段发生变化时，需要更新这个数据
+add_user : insert into user(mail,passwd,Qptime,Dstime,Jgtime,Mytime,time,zTime,MAC,state) value(?,?,?,?,?,?,?,?,?,'*');
+#得到用户所在的所有城市记录
+get_user_city_all : SELECT * FROM jiaoben.user_city WHERE `mail`=? and `state`='*';
+UpdateUserCityOne : UPDATE `jiaoben`.`user_city` SET `mail`=?, `country`=?, `region`=?, `city`=?, `county`=?, `ip`=? WHERE `id`=?;
+SaveUserCityOne : INSERT INTO `jiaoben`.`user_city` (`mail`, `country`, `region`, `city`, `county`, `ip`) VALUES (?, ?,?, ?, ?, ?);
+UpdateUserInfo : UPDATE `jiaoben`.`user_info` SET `user_pc_win`=?, `user_pc_name`=?, `user_sequence`=? WHERE `user_mail`=?;
